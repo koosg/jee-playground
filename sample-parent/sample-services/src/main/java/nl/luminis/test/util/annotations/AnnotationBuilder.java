@@ -1,4 +1,4 @@
-package nl.luminis.test.util;
+package nl.luminis.test.util.annotations;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

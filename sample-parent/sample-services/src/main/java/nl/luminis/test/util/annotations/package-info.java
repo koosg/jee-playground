@@ -6,4 +6,4 @@
  * Still, fully under apache license.
  *
  */
-package nl.luminis.test.util;
+package nl.luminis.test.util.annotations;

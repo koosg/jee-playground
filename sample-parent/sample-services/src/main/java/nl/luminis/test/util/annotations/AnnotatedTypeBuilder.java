@@ -1,4 +1,4 @@
-package nl.luminis.test.util;
+package nl.luminis.test.util.annotations;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 

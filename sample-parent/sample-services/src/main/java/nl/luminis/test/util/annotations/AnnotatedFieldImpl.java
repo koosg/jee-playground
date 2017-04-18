@@ -1,4 +1,4 @@
-package nl.luminis.test.util;
+package nl.luminis.test.util.annotations;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,28 +19,25 @@ package nl.luminis.test.util;
  * under the License.
  */
 
-import javax.enterprise.inject.spi.AnnotatedMethod;
+import javax.enterprise.inject.spi.AnnotatedField;
 import javax.enterprise.inject.spi.AnnotatedType;
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.lang.reflect.Type;
-import java.util.Map;
 
 /**
- * Implementation of {@link AnnotatedMethod} to be used in CDI life cycle events and
+ * Implementation of {@link AnnotatedField} to be used in CDI life cycle events and
  * {@link org.apache.deltaspike.core.util.metadata.builder.AnnotatedTypeBuilder}.
  */
-class AnnotatedMethodImpl<X> extends AnnotatedCallableImpl<X, Method> implements AnnotatedMethod<X>
+class AnnotatedFieldImpl<X> extends AnnotatedMemberImpl<X, Field> implements AnnotatedField<X>
 {
+
     /**
      * Constructor.
      */
-    public AnnotatedMethodImpl(AnnotatedType<X> type,
-                               Method method,
-                               AnnotationStore annotations,
-                               Map<Integer, AnnotationStore> parameterAnnotations,
-                               Map<Integer, Type> parameterTypeOverrides)
+    public AnnotatedFieldImpl(AnnotatedType<X> declaringType, Field field, AnnotationStore annotations,
+                              Type overriddenType)
     {
-        super(type, method, method.getReturnType(), method.getParameterTypes(), method.getGenericParameterTypes(),
-                annotations, parameterAnnotations, method.getGenericReturnType(), parameterTypeOverrides);
+        super(declaringType, field, field.getType(), annotations, field.getGenericType(), overriddenType);
     }
+
 }
